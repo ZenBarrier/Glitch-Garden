@@ -4,7 +4,14 @@ using System.Collections;
 
 public class LevelManager : MonoBehaviour {
 
-	public void LoadLevel(string name)
+    public float loadTime;
+
+    void Start()
+    {
+        Invoke("LoadNextLevel", loadTime);
+    }
+
+    public void LoadLevel(string name)
     {
         Debug.Log("Level loaded for: "+name);
         //Application.LoadLevel(name); //Depricated
@@ -17,7 +24,7 @@ public class LevelManager : MonoBehaviour {
         Application.Quit(); //only works in PC build. Bad for mobiles
     }
 
-    public static void LoadNextLevel()
+    public void LoadNextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }

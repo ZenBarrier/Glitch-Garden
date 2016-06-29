@@ -10,6 +10,5 @@ public class SplashController : MonoBehaviour {
 
     void EndSplash()
     {
-        LevelManager.LoadNextLevel();
     }
 }
