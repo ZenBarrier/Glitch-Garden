@@ -8,7 +8,10 @@ public class LevelManager : MonoBehaviour {
 
     void Start()
     {
-        Invoke("LoadNextLevel", loadTime);
+        if (loadTime > 0)
+        {
+            Invoke("LoadNextLevel", loadTime);
+        }
     }
 
     public void LoadLevel(string name)

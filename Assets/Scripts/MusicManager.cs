@@ -31,7 +31,7 @@ public class MusicManager : MonoBehaviour {
     void SetMusicPlayer(int level)
     {
         AudioClip thisLevelMusic = levelMusicChangeArray[level];
-        if (thisLevelMusic)
+        if (thisLevelMusic && thisLevelMusic != music.clip)
         {
             music.Stop();
             music.clip = thisLevelMusic;
