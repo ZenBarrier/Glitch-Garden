@@ -51,4 +51,9 @@ public class MusicManager : MonoBehaviour {
     {
         SetMusicPlayer(level);
     }
+
+    public void SetVolume(float volume)
+    {
+        music.volume = volume;
+    }
 }
