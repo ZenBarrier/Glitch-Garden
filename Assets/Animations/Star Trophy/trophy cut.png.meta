@@ -1,5 +1,7 @@
 fileFormatVersion: 2
 guid: 607b08d4d523d4ca0aef488658c68c2e
+timeCreated: 1467575094
+licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: trophy top
@@ -44,7 +46,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 80
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
@@ -55,18 +57,26 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 21
-        width: 37
+        width: 38
         height: 41
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: -16, y: 41}
+        - {x: -19, y: 40}
+        - {x: -19, y: 7}
+        - {x: -10, y: 0}
+        - {x: 5, y: 0}
+        - {x: 19, y: 6}
+        - {x: 19, y: 36}
+        - {x: 14, y: 41}
     - name: trophy base
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 37
+        width: 38
         height: 19
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
