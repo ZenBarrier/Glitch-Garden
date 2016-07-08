@@ -63,6 +63,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Animations\Fox\Fox.cs" />
+    <Compile Include="Assets\Animations\Gravestone\Gravestone.cs" />
+    <Compile Include="Assets\Animations\Lizard\Lizard.cs" />
     <Compile Include="Assets\Scripts\Attacker.cs" />
     <Compile Include="Assets\Scripts\Defender.cs" />
     <Compile Include="Assets\Scripts\FadeIn.cs" />
