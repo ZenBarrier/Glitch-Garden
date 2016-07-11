@@ -21,7 +21,7 @@ public class Health : MonoBehaviour {
     {
         health -= damage;
         animator.SetTrigger("damageTrigger");
-        if (health < 0)
+        if (health <= 0)
         {
             DestroyObject();
         }
