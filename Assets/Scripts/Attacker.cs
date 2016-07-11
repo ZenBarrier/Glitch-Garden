@@ -34,6 +34,7 @@ public class Attacker : MonoBehaviour {
         currentSpeed = speed;
     }
 
+    //called by attack animation
     public void StrikeCurrentTarget(float damage)
     {
         Debug.Log(name +" caused damage: "+ damage);
@@ -50,6 +51,7 @@ public class Attacker : MonoBehaviour {
 
     public void Attack(GameObject obj)
     {
+        //Sets target for Strike. Strike called by animator.
         currentTarget = obj;
     }
 }
