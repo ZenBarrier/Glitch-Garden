@@ -21,7 +21,7 @@ public class Lizard : MonoBehaviour
         if (obj.GetComponent<Defender>())
         {
             lizardAnimator.SetBool("isAttacking", true);
-            attacker.StartAttack(obj);
+            attacker.Attack(obj);
         }
     }
 }
