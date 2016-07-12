@@ -67,6 +67,7 @@
     <Compile Include="Assets\Animations\Gravestone\Gravestone.cs" />
     <Compile Include="Assets\Animations\Lizard\Lizard.cs" />
     <Compile Include="Assets\Scripts\Attacker.cs" />
+    <Compile Include="Assets\Scripts\AttackerSpawner.cs" />
     <Compile Include="Assets\Scripts\Button.cs" />
     <Compile Include="Assets\Scripts\Defender.cs" />
     <Compile Include="Assets\Scripts\DefenderSpawner.cs" />
