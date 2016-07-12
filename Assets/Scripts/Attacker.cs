@@ -3,6 +3,9 @@ using System.Collections;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Attacker : MonoBehaviour {
+
+    [Tooltip("How often to spawn in seconds")]
+    public float spawnRate;
     
     private float currentSpeed;
     private GameObject currentTarget;
