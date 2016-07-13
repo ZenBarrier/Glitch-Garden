@@ -25,8 +25,8 @@ public class DefenderSpawner : MonoBehaviour {
     Vector2 GetGridPosition()
     {
         Vector2 floatPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        int roundX = Mathf.RoundToInt(floatPoint.x);
-        int roundY = Mathf.RoundToInt(floatPoint.y);
+        int roundX = Mathf.Clamp(Mathf.RoundToInt(floatPoint.x), 1, 9);
+        int roundY = Mathf.Clamp(Mathf.RoundToInt(floatPoint.y), 1, 5);
         return new Vector2(roundX, roundY);
     }
 }
