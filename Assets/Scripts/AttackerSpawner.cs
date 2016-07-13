@@ -25,7 +25,9 @@ public class AttackerSpawner : MonoBehaviour {
 
     bool isTimeToSpawn(GameObject thisAttacker)
     {
-        float probabilty = Time.deltaTime / thisAttacker.GetComponent<Attacker>().spawnRate;
+        float attackerMean = thisAttacker.GetComponent<Attacker>().spawnRate;
+        float attackersPerSec = 1 / attackerMean;
+        float probabilty = Time.deltaTime * attackersPerSec / 5;
         if(Random.value < probabilty)
         {
             return true;

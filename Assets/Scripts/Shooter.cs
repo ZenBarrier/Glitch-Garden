@@ -6,7 +6,7 @@ public class Shooter : MonoBehaviour {
     public GameObject projectile;
 
     private GameObject projectileParent;
-    private GameObject myLane;
+    private AttackerSpawner myLane;
     private Animator animator;
 
     void Start()
@@ -22,7 +22,7 @@ public class Shooter : MonoBehaviour {
 
     void Update()
     {
-        if (isAttackerInLane())
+        if (IsAttackerAhead())
         {
             animator.SetBool("isAttacking", true);
         }
@@ -35,30 +35,29 @@ public class Shooter : MonoBehaviour {
     void FindMyLane()
     {
         GameObject Lanes = GameObject.Find("Spawners");
-        if (!Lanes)
+        AttackerSpawner[] spawners = GameObject.FindObjectsOfType<AttackerSpawner>();
+
+        foreach (AttackerSpawner spawner in spawners)
         {
-            Debug.LogError("No Spawners found.");
-            return;
-        }
-        foreach (Transform child in Lanes.transform)
-        {
-            if(child.position.y == this.transform.position.y)
+            if(spawner.transform.position.y == this.transform.position.y)
             {
-                myLane = child.gameObject;
+                myLane = spawner;
+                return;
             }
         }
+        Debug.LogError("Spawner not found.");
     }
 
-    bool isAttackerInLane()
+    bool IsAttackerAhead()
     {
-        if(myLane.transform.childCount > 0)
+        foreach (Transform attacker in myLane.transform)
         {
-            return true;
+            if(attacker.position.x > this.transform.position.x)
+            {
+                return true;
+            }
         }
-        else
-        {
-            return false;
-        }
+        return false;
     }
 
 	private void ShootGun()
