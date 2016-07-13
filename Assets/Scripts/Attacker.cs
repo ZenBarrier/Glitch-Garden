@@ -29,7 +29,7 @@ public class Attacker : MonoBehaviour {
 
     void OnTriggerEnter2D()
     {
-        Debug.Log(name);
+        
     }
 
     public void SetSpeed(float speed)
