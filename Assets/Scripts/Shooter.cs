@@ -34,7 +34,6 @@ public class Shooter : MonoBehaviour {
 
     void FindMyLane()
     {
-        GameObject Lanes = GameObject.Find("Spawners");
         AttackerSpawner[] spawners = GameObject.FindObjectsOfType<AttackerSpawner>();
 
         foreach (AttackerSpawner spawner in spawners)

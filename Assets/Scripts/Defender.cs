@@ -3,18 +3,15 @@ using System.Collections;
 
 public class Defender : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    private StarDisplay display;
 
-    void OnTriggerEnter2D()
+    void Start()
     {
-        
+        display = FindObjectOfType<StarDisplay>();
+    }
+
+    public void AddStars(int amount)
+    {
+        display.AddStars(amount);
     }
 }
