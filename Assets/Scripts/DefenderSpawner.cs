@@ -18,7 +18,16 @@ public class DefenderSpawner : MonoBehaviour {
     void OnMouseDown()
     {
         GameObject defender;
-        defender = Instantiate(Button.selectedDefender, GetGridPosition(), Quaternion.identity) as GameObject;
+        Vector3 gridPoint = GetGridPosition();
+        Defender[] defenders = FindObjectsOfType<Defender>();
+        foreach (Defender obj in defenders)
+        {
+            if (obj.transform.position == gridPoint)
+            {
+                return;
+            }
+        }
+        defender = Instantiate(Button.selectedDefender, gridPoint, Quaternion.identity) as GameObject;
         defender.transform.parent = defenderParent.transform;
     }
 
