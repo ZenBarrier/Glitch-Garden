@@ -4,10 +4,12 @@ using System.Collections;
 public class DefenderSpawner : MonoBehaviour {
 
     private GameObject defenderParent;
+    private StarDisplay starDisplay;
 
     // Use this for initialization
     void Start()
     {
+        starDisplay = FindObjectOfType<StarDisplay>();
         defenderParent = GameObject.Find("Defenders");
         if (!defenderParent)
         {
@@ -17,7 +19,7 @@ public class DefenderSpawner : MonoBehaviour {
 
     void OnMouseDown()
     {
-        GameObject defender;
+        GameObject defender = Button.selectedDefender;
         Vector3 gridPoint = GetGridPosition();
         Defender[] defenders = FindObjectsOfType<Defender>();
         foreach (Defender obj in defenders)
@@ -27,8 +29,11 @@ public class DefenderSpawner : MonoBehaviour {
                 return;
             }
         }
-        defender = Instantiate(Button.selectedDefender, gridPoint, Quaternion.identity) as GameObject;
-        defender.transform.parent = defenderParent.transform;
+        if (StarDisplay.Status.SUCCESS == starDisplay.UseStars(defender.GetComponent<Defender>().starCost))
+        {
+            defender = Instantiate(Button.selectedDefender, gridPoint, Quaternion.identity) as GameObject;
+            defender.transform.parent = defenderParent.transform;
+        }
     }
 
     Vector2 GetGridPosition()
