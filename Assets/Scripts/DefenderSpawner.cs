@@ -20,20 +20,35 @@ public class DefenderSpawner : MonoBehaviour {
     void OnMouseDown()
     {
         GameObject defender = Button.selectedDefender;
+        int defenderCost = defender.GetComponent<Defender>().starCost;
         Vector3 gridPoint = GetGridPosition();
+
+        if (isGridSpotFree(gridPoint))
+        {
+            if (starDisplay.UseStars(defenderCost) == StarDisplay.Status.SUCCESS)
+            {
+                SpawnDefender(gridPoint, defender);
+            }
+        }
+    }
+
+    bool isGridSpotFree(Vector3 gridPoint)
+    {
         Defender[] defenders = FindObjectsOfType<Defender>();
         foreach (Defender obj in defenders)
         {
             if (obj.transform.position == gridPoint)
             {
-                return;
+                return false;
             }
         }
-        if (StarDisplay.Status.SUCCESS == starDisplay.UseStars(defender.GetComponent<Defender>().starCost))
-        {
-            defender = Instantiate(Button.selectedDefender, gridPoint, Quaternion.identity) as GameObject;
-            defender.transform.parent = defenderParent.transform;
-        }
+        return true;
+    }
+
+    void SpawnDefender(Vector2 position, GameObject defender)
+    {
+        defender = Instantiate(Button.selectedDefender, position, Quaternion.identity) as GameObject;
+        defender.transform.parent = defenderParent.transform;
     }
 
     Vector2 GetGridPosition()
