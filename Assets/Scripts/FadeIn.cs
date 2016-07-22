@@ -12,6 +12,7 @@ public class FadeIn : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         fadePanel = GetComponent<Image>();
+        fadePanel.color = Color.black;
 	}
 	
 	// Update is called once per frame
