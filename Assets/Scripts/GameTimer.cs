@@ -5,8 +5,7 @@ using System.Collections;
 public class GameTimer : MonoBehaviour {
     [Tooltip("Time to win in seconds.")]
     public float levelTime;
-
-    private float elapsedTime = 0;
+    
     private Slider timeSlider;
     private LevelManager levelManager;
 
@@ -19,10 +18,9 @@ public class GameTimer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        elapsedTime += Time.deltaTime;
-        timeSlider.value = elapsedTime;
+        timeSlider.value = Time.timeSinceLevelLoad;
 
-        if(elapsedTime >= levelTime)
+        if(Time.timeSinceLevelLoad >= levelTime)
         {
             levelManager.LoadLevel("03a Win");
         }
