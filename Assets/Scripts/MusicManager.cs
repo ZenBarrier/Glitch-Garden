@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class MusicManager : MonoBehaviour {
@@ -25,7 +26,13 @@ public class MusicManager : MonoBehaviour {
             instance = this;
             music = this.GetComponent<AudioSource>();
             SetMusicPlayer(0);
+            SceneManager.sceneLoaded += SceneManager_sceneLoaded;
         }
+    }
+
+    private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
+    {
+        SetMusicPlayer(arg0.buildIndex);
     }
 
     void SetMusicPlayer(int level)
@@ -45,11 +52,6 @@ public class MusicManager : MonoBehaviour {
             }
             music.Play();
         }
-    }
-
-    void OnLevelWasLoaded(int level)
-    {
-        SetMusicPlayer(level);
     }
 
     public void SetVolume(float volume)
