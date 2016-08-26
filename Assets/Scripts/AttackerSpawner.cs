@@ -28,13 +28,7 @@ public class AttackerSpawner : MonoBehaviour {
         float attackerMean = thisAttacker.GetComponent<Attacker>().spawnRate;
         float attackersPerSec = 1 / attackerMean;
         float probabilty = Time.deltaTime * attackersPerSec / 5;
-        if(Random.value < probabilty)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+
+        return (Random.value < probabilty);
     }
 }
