@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Button : MonoBehaviour {
@@ -8,10 +9,13 @@ public class Button : MonoBehaviour {
     public GameObject defenderPrefab;
     
     private Button[] buttonArray;
+    private Text cost;
 
 	// Use this for initialization
 	void Start () {
         buttonArray = GameObject.FindObjectsOfType<Button>();
+        cost = this.transform.GetComponentInChildren<Text>();
+        cost.text = defenderPrefab.GetComponent<Defender>().starCost.ToString();
 	}
 
     void OnMouseDown()
