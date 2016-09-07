@@ -25,6 +25,7 @@ public class MusicManager : MonoBehaviour {
         {
             instance = this;
             music = this.GetComponent<AudioSource>();
+            music.volume = PlayerPrefsManager.GetMasterVolume();
             SetMusicPlayer(0);
             SceneManager.sceneLoaded += SceneManager_sceneLoaded;
         }
