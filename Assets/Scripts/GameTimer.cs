@@ -22,7 +22,28 @@ public class GameTimer : MonoBehaviour {
 
         if(Time.timeSinceLevelLoad >= levelTime)
         {
-            levelManager.LoadLevel("03a Win");
+            HandleWinCondition();
         }
-	}
+    }
+
+    private void HandleWinCondition()
+    {
+        DestroyAllTaggedObjects();
+        Invoke("LoadNextLevel", 3);
+    }
+
+    //Destroy Objects with tag DestroyOnWin
+    private void DestroyAllTaggedObjects()
+    {
+        GameObject[] taggedGameObjectsArray = GameObject.FindGameObjectsWithTag("DestroyOnWin");
+        foreach (GameObject gameObject in taggedGameObjectsArray)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void LoadNextLevel()
+    {
+        levelManager.LoadNextLevel();
+    }
 }
